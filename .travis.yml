@@ -1,4 +1,3 @@
-# .travis.yml
 os: osx
 osx_image: xcode10.2
 language: node_js
@@ -11,3 +10,12 @@ before_install:
 script:
 - npm install
 - npm run pretest
+deploy:
+  provider: heroku
+  api_key:
+    secure: dUFqcAfPetkAg+/dKljaKsTlH+STPV+v6+aGUxHbCGluJm+HuyRcJ2TnqI3egLJTrueeMsk8O7Hded/nh94joa1jAzbaHSkPdNu7KxAFwXxNcBrBEBBRFxHFSfV9WM//S95dk9v4rGdsopcaai3Rd/vKK9zHoykgtKBcADnC1TASs3rflgVoDBzCWkn1cCnCZfy46vItogJbA4IKH8rWs3bmWV068U6jv9SuyYjbBZRHP6KllymMu0F46jCkFnqTVHrun3oJy5VbKSgWpJ3Lu5xO5dMO/BP6dTRXXzCJHlLAl2BJczFyR3OKF82GBGOGsZR1B33oMqqDbKGJ5Nxl6wkIzmBQ5+bMlZ5kG19EZI00Pgw5FHhu919DZ8AM5VffLi5UKSW9pM14eemHjEbTUdeu7MXiRjVmIdCSChku0APcX5cjO0MsSYiLPho7kbaaMq0mYUnciZwzu96JznKOdTtHYQHOw0aZrxhPZr/WbQpQa03+8CRsyZYGn6yI6B947ni49jdmUhF/QyRnbmCO5TNzh4RlTR9VJYiRJV1oIs55zM30QQYAvW9LrUnvpn0PvFxzV746pvte2u5n3jrfhnELIBYTxUb2L8WNTNPSXjU9N2pU7Hz9HH5XUBkD/TIAQzRqtwiX3KGuwL7H31UMaFJ0YBokG7WsRk8lV49oT+0=
+  app: automate-heroku
+  on:
+    repo: nickitaliano/automate-heroku-deployment
+    branch: nodejs-project
+  skip_cleanup: 'true'
